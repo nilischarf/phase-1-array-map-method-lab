@@ -12,5 +12,24 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  return tutorials.map(function(tutorial){
+    return tutorial
+      .split(" ")
+      .map(function(word){
+        if (word === "NaN") {
+          return "NaN"; 
+        }
+        if (word === "stopPropagation") {
+          return "StopPropagation"
+        }
+        if (word === "preventDefault?") {
+          return "PreventDefault?"
+        }
+        if (word === "OO" || word === "API"|| word === "JSONP?") {
+          return word.toUpperCase(); 
+        }
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .join(" ");
+  });
 }
